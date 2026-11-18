@@ -20,3 +20,6 @@ chiikawa-save-*.json
 coverage/
 work/
 tmp/
+
+# Distribution archives and duplicate extracted copies
+/배포파일/
