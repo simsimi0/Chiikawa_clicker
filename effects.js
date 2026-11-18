@@ -3,7 +3,7 @@
   let lastSound=0,lastMotion=-1;
   const playing=new Set(),lastVariations={};
   const interjectionNames=['ah','oh','ah-long','oh-question'];
-  const originalVoices={usagi:[1,2,3].map(n=>'assets/sounds/original/usagi-'+n+'.wav'),chiikawa:interjectionNames.map(n=>'assets/sounds/interjections/chiikawa-'+n+'.wav'),hachiware:interjectionNames.map(n=>'assets/sounds/interjections/hachiware-'+n+'.wav')};
+  const originalVoices={usagi:[1,2,3].map(n=>'assets/sounds/original/usagi-'+n+'.wav'),chiikawa:interjectionNames.map(n=>'assets/sounds/interjections/chiikawa-'+n+'.wav?v=4'),hachiware:interjectionNames.map(n=>'assets/sounds/interjections/hachiware-'+n+'.wav?v=4')};
   const voiceOverrides={};
   function play(person,volume=.45,preview=false){
     const now=Date.now();if(!preview&&(now-lastSound<120||playing.size>0))return;if(playing.size>=2)return;lastSound=now;

@@ -60,17 +60,34 @@ def vowel_edit(x,vowel):
  edited=np.fft.irfft(np.fft.rfft(x,size)*ratio,size)[:len(x)]
  return edited/max(np.max(np.abs(edited)),1e-8)
 
-def extend(x,duration):
- """Overlap/crossfade the steady vowel, without repeating a whole spoken word."""
- count=int(RATE*duration);overlap=int(RATE*.035);out=x.copy()
- while len(out)<count:
-  blend=np.linspace(0,1,overlap)
-  seam=out[-overlap:]*(1-blend)+x[:overlap]*blend
-  out=np.r_[out[:-overlap],seam,x[overlap:]]
- return out[:count]
+def stretch_continuous(x,duration):
+ """Lengthen one voiced nucleus with phase continuity, never by looping it."""
+ count=int(RATE*duration);nfft=1024;hop=128;window=np.hanning(nfft)
+ padded=np.pad(x,(nfft//2,nfft//2),mode='reflect')
+ frames=np.lib.stride_tricks.sliding_window_view(padded,nfft)[::hop]
+ spectrum=np.fft.rfft(frames*window,axis=1).T
+ # Suppress the source's onset/syllable-level amplitude bumps before stretching.
+ energy=np.sqrt(np.mean(np.abs(spectrum)**2,axis=0))
+ spectrum*=np.clip(np.median(energy)/np.maximum(energy,1e-8),.4,2.)
+ rate=len(x)/count;steps=np.arange(0,spectrum.shape[1]-1,rate)
+ phase=np.angle(spectrum[:,0]);advance=2*np.pi*hop*np.arange(nfft//2+1)/nfft
+ stretched=[]
+ for step in steps:
+  i=int(step);blend=step-i;left=spectrum[:,i];right=spectrum[:,i+1]
+  magnitude=(1-blend)*np.abs(left)+blend*np.abs(right)
+  stretched.append(magnitude*np.exp(1j*phase))
+  delta=np.angle(right)-np.angle(left)-advance
+  delta-=2*np.pi*np.round(delta/(2*np.pi));phase+=advance+delta
+ out=np.zeros(len(stretched)*hop+nfft);normalizer=np.zeros_like(out)
+ for i,column in enumerate(stretched):
+  pos=i*hop;out[pos:pos+nfft]+=np.fft.irfft(column,nfft)*window
+  normalizer[pos:pos+nfft]+=window*window
+ out/=np.maximum(normalizer,1e-8)
+ out=out[nfft//2:nfft//2+count]
+ return np.pad(out,(0,max(0,count-len(out))))[:count]
 
 def render(seed,vowel,duration,contour):
- x=vowel_edit(seed,vowel);x=extend(x,duration*1.14)
+ x=vowel_edit(seed,vowel);x=stretch_continuous(x,duration*1.14)
  count=int(RATE*duration);t=np.linspace(0,1,count)
  # Gentle intonation through resampling of the edited original vowel.
  speed=1+contour*(t-.5);positions=np.cumsum(speed)-speed[0]
@@ -93,6 +110,6 @@ for person,choices in SEEDS.items():
   vowel='ah' if name.startswith('ah') else 'oh'
   filename,number=choices[vowel];seed,offset=select_voiced(read(filename))
   result=render(seed,vowel,duration,contour);target=DEST/f'{person}-{name}.wav';write(target,result)
-  manifest.append({'person':person,'label':label,'file':str(target.relative_to(BASE)).replace('\\','/'),'source':f'assets/sounds/candidates/{filename}','selected_source_number':number,'nucleus_offset':round(offset,3),'duration':duration,'method':'Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.','listening_verified':False})
+  manifest.append({'person':person,'label':label,'file':str(target.relative_to(BASE)).replace('\\','/'),'source':f'assets/sounds/candidates/{filename}','selected_source_number':number,'nucleus_offset':round(offset,3),'duration':duration,'method':'Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.','sample_looping':False,'listening_verified':False})
 (DEST/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf8')
 print('Built 8 vowel interjection edits from only the user-selected 4 reference clips.')

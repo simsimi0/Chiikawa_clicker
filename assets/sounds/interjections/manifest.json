@@ -7,7 +7,8 @@
     "selected_source_number": 1,
     "nucleus_offset": 0.01,
     "duration": 0.32,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -18,7 +19,8 @@
     "selected_source_number": 4,
     "nucleus_offset": 0.14,
     "duration": 0.34,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -29,7 +31,8 @@
     "selected_source_number": 1,
     "nucleus_offset": 0.01,
     "duration": 0.56,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -40,7 +43,8 @@
     "selected_source_number": 4,
     "nucleus_offset": 0.14,
     "duration": 0.46,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -51,7 +55,8 @@
     "selected_source_number": 1,
     "nucleus_offset": 0.589,
     "duration": 0.32,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -62,7 +67,8 @@
     "selected_source_number": 2,
     "nucleus_offset": 0.15,
     "duration": 0.34,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -73,7 +79,8 @@
     "selected_source_number": 1,
     "nucleus_offset": 0.589,
     "duration": 0.56,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   },
   {
@@ -84,7 +91,8 @@
     "selected_source_number": 2,
     "nucleus_offset": 0.15,
     "duration": 0.46,
-    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "method": "Single original voiced nucleus; LPC vowel shaping; phase-continuous time stretch with no sample loops; single onset/release; intonation editing. No trained model.",
+    "sample_looping": false,
     "listening_verified": false
   }
 ]
