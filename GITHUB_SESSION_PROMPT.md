@@ -31,7 +31,7 @@
 - `core.js`: 경제 계산, 상태, 구매, 강화, 환생, 의뢰, 업적, 오프라인 보상과 저장 데이터 검증
 - `save.js`: localStorage 저장, 정상 백업, 한 탭 실행 제한과 이미지 등록 정보
 - `app.js`: 상호작용, 화면 갱신, 설정, 이미지 등록, JSON 백업, 효과음
-- `tests.cjs`: Node.js 기본 테스트 도구를 사용하는 22개 검증
+- `tests.cjs`: Node.js 기본 테스트 도구를 사용하는 23개 검증
 - `effects.js`, `assets/sounds/`: 클릭 모션 3종. 우사기 원본 음성 3종, 치이카와 원본 발성 4종, 하치와레 원본 모음 편집 4종을 연결했다. 다른 캐릭터는 임시 합성 반응음이다. 상세 확인 상태는 `AUDIO-SOURCES.md`를 따른다.
 - `server.cjs`: 선택적으로 사용할 로컬 HTTP 서버
 - `assets/characters/`: 공식 기본 캐릭터 아틀라스와 후드 팬 편집 PNG

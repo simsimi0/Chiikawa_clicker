@@ -1,0 +1,90 @@
+[
+  {
+    "person": "hachiware",
+    "label": "아!",
+    "file": "assets/sounds/interjections/hachiware-ah.wav",
+    "source": "assets/sounds/candidates/hachiware-v2-1.wav",
+    "selected_source_number": 1,
+    "nucleus_offset": 0.01,
+    "duration": 0.32,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "hachiware",
+    "label": "오!",
+    "file": "assets/sounds/interjections/hachiware-oh.wav",
+    "source": "assets/sounds/candidates/hachiware-v2-4.wav",
+    "selected_source_number": 4,
+    "nucleus_offset": 0.14,
+    "duration": 0.34,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "hachiware",
+    "label": "아~",
+    "file": "assets/sounds/interjections/hachiware-ah-long.wav",
+    "source": "assets/sounds/candidates/hachiware-v2-1.wav",
+    "selected_source_number": 1,
+    "nucleus_offset": 0.01,
+    "duration": 0.56,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "hachiware",
+    "label": "오?",
+    "file": "assets/sounds/interjections/hachiware-oh-question.wav",
+    "source": "assets/sounds/candidates/hachiware-v2-4.wav",
+    "selected_source_number": 4,
+    "nucleus_offset": 0.14,
+    "duration": 0.46,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "chiikawa",
+    "label": "아!",
+    "file": "assets/sounds/interjections/chiikawa-ah.wav",
+    "source": "assets/sounds/candidates/chiikawa-v2-1.wav",
+    "selected_source_number": 1,
+    "nucleus_offset": 0.589,
+    "duration": 0.32,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "chiikawa",
+    "label": "오!",
+    "file": "assets/sounds/interjections/chiikawa-oh.wav",
+    "source": "assets/sounds/candidates/chiikawa-v2-2.wav",
+    "selected_source_number": 2,
+    "nucleus_offset": 0.15,
+    "duration": 0.34,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "chiikawa",
+    "label": "아~",
+    "file": "assets/sounds/interjections/chiikawa-ah-long.wav",
+    "source": "assets/sounds/candidates/chiikawa-v2-1.wav",
+    "selected_source_number": 1,
+    "nucleus_offset": 0.589,
+    "duration": 0.56,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  },
+  {
+    "person": "chiikawa",
+    "label": "오?",
+    "file": "assets/sounds/interjections/chiikawa-oh-question.wav",
+    "source": "assets/sounds/candidates/chiikawa-v2-2.wav",
+    "selected_source_number": 2,
+    "nucleus_offset": 0.15,
+    "duration": 0.46,
+    "method": "Original periodic voice nucleus; LPC spectral-envelope vowel shaping; crossfaded sustain; onset/release and intonation editing. No trained model.",
+    "listening_verified": false
+  }
+]
