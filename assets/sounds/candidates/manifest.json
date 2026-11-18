@@ -1,0 +1,110 @@
+[
+  {
+    "person": "chiikawa",
+    "candidate": 1,
+    "file": "assets/sounds/candidates/chiikawa-candidate-1.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 13.12,
+    "end": 13.62,
+    "verified": false
+  },
+  {
+    "person": "chiikawa",
+    "candidate": 2,
+    "file": "assets/sounds/candidates/chiikawa-candidate-2.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 24.2,
+    "end": 24.65,
+    "verified": false
+  },
+  {
+    "person": "chiikawa",
+    "candidate": 3,
+    "file": "assets/sounds/candidates/chiikawa-candidate-3.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 24.72,
+    "end": 25.13,
+    "verified": false
+  },
+  {
+    "person": "chiikawa",
+    "candidate": 4,
+    "file": "assets/sounds/candidates/chiikawa-candidate-4.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 25.2,
+    "end": 25.67,
+    "verified": false
+  },
+  {
+    "person": "usagi",
+    "candidate": 1,
+    "file": "assets/sounds/candidates/usagi-candidate-1.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 4.15,
+    "end": 5.05,
+    "verified": false
+  },
+  {
+    "person": "usagi",
+    "candidate": 2,
+    "file": "assets/sounds/candidates/usagi-candidate-2.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 6.0,
+    "end": 6.9,
+    "verified": false
+  },
+  {
+    "person": "usagi",
+    "candidate": 3,
+    "file": "assets/sounds/candidates/usagi-candidate-3.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 8.0,
+    "end": 8.9,
+    "verified": false
+  },
+  {
+    "person": "usagi",
+    "candidate": 4,
+    "file": "assets/sounds/candidates/usagi-candidate-4.wav",
+    "video": "kzAfNg6pAvI",
+    "start": 17.75,
+    "end": 18.7,
+    "verified": false
+  },
+  {
+    "person": "hachiware",
+    "candidate": 1,
+    "file": "assets/sounds/candidates/hachiware-candidate-1.wav",
+    "video": "HGDIu-q6XHI",
+    "start": 5.9,
+    "end": 6.9,
+    "verified": false
+  },
+  {
+    "person": "hachiware",
+    "candidate": 2,
+    "file": "assets/sounds/candidates/hachiware-candidate-2.wav",
+    "video": "HGDIu-q6XHI",
+    "start": 13.6,
+    "end": 14.65,
+    "verified": false
+  },
+  {
+    "person": "hachiware",
+    "candidate": 3,
+    "file": "assets/sounds/candidates/hachiware-candidate-3.wav",
+    "video": "HGDIu-q6XHI",
+    "start": 22.05,
+    "end": 23.2,
+    "verified": false
+  },
+  {
+    "person": "hachiware",
+    "candidate": 4,
+    "file": "assets/sounds/candidates/hachiware-candidate-4.wav",
+    "video": "HGDIu-q6XHI",
+    "start": 40.8,
+    "end": 42.0,
+    "verified": false
+  }
+]

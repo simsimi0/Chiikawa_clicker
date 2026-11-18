@@ -35,11 +35,13 @@
     ...[1,5,10].map(n=>({id:'rebirth'+n,name:'다시 시작한 여행 '+n+'회',value:s=>s.rebirths,goal:n})),
     {id:'tree10',name:'깊게 내린 뿌리',value:s=>Object.values(s.tree).reduce((a,b)=>a+b,0),goal:10}
   ];
-  function fresh(now=Date.now()) {return {version:1,coins:0,total:0,runTotal:0,clicks:0,playTime:0,outfits:[true,false,false,false],owned:Object.fromEntries(ITEMS.map(i=>[i.id,0])),bought:Object.fromEntries(ITEMS.map(i=>[i.id,0])),boosts:Object.fromEntries(ITEMS.map(i=>[i.id,0])),clickLevel:0,globalLevel:0,rebirths:0,earnedPoints:0,points:0,tree:Object.fromEntries(TREES.map(t=>[t.id,0])),quests:{produce:0,click:0,buy:0},stamps:0,achievements:{},settings:{motion:true,sound:false,theme:'rose'},createdAt:now,lastSeen:now};}
+  function fresh(now=Date.now()) {return {version:1,coins:0,total:0,runTotal:0,clicks:0,playTime:0,outfits:[true,false,false,false],owned:Object.fromEntries(ITEMS.map(i=>[i.id,0])),bought:Object.fromEntries(ITEMS.map(i=>[i.id,0])),boosts:Object.fromEntries(ITEMS.map(i=>[i.id,0])),clickLevel:0,globalLevel:0,rebirths:0,earnedPoints:0,points:0,tree:Object.fromEntries(TREES.map(t=>[t.id,0])),quests:{produce:0,click:0,buy:0},stamps:0,achievements:{},settings:{motion:true,sound:false,theme:'rose',mainCharacter:'chiikawa_0',soundVolume:.45},createdAt:now,lastSeen:now};}
   const bounded=n=>Math.min(CAP,Math.max(0,n));
   function format(n) {if(!Number.isFinite(n))return '한도'; if(n<1000)return n.toLocaleString('en-US',{maximumFractionDigits:n<10?1:0});const units=['','K','M','B','T','Qa','Qi','Sx','Sp'];const t=Math.floor(Math.log10(n)/3);return t<units.length?(n/1000**t).toFixed(2).replace(/\.00$/,'')+units[t]:n.toExponential(2);}
   function discovered(s){return ITEMS.filter(i=>s.bought[i.id]>0||i.id==='chiikawa_0').length;}
   function unlocked(s,i){return s.outfits[i.tier]===true;}
+  function canDisplay(s,id){const i=ITEMS.find(i=>i.id===id);return !!i&&unlocked(s,i)&&(id==='chiikawa_0'||s.bought[id]>0);}
+  function selectCharacter(s,id){if(!canDisplay(s,id))return false;s.settings.mainCharacter=id;return true;}
   function buyOutfit(s,tier){const t=TIERS[tier];if(!t||tier===0||s.outfits[tier]||s.coins<t.price)return false;s.coins-=t.price;s.outfits[tier]=true;return true;}
   function milestone(n){return 2**MILESTONES.filter(m=>n>=m).length;}
   function collectionBonus(s){const varieties=ITEMS.filter(i=>s.bought[i.id]>0).length;const sets=TIERS.filter((t,n)=>PEOPLE.every(p=>s.bought[p.id+'_'+n]>0)).length;return 1+(varieties*0.01+sets*0.1)*(1+s.tree.collection*0.2);}
@@ -79,13 +81,13 @@
     if(!input.achievements||typeof input.achievements!=='object')throw Error('업적 기록이 없습니다.');
     ACHIEVEMENTS.forEach(a=>{if(Object.hasOwn(input.achievements,a.id))out.achievements[a.id]=number(input.achievements[a.id],8640000000000000,true);});
     if(typeof input.settings?.motion!=='boolean'||typeof input.settings?.sound!=='boolean')throw Error('설정 형식이 올바르지 않습니다.');
-    out.settings={motion:input.settings.motion,sound:input.settings.sound,theme:['rose','mint','night'].includes(input.settings.theme)?input.settings.theme:'rose'};
+    out.settings={motion:input.settings.motion,sound:input.settings.sound,theme:['rose','mint','night'].includes(input.settings.theme)?input.settings.theme:'rose',mainCharacter:canDisplay(out,input.settings.mainCharacter)?input.settings.mainCharacter:'chiikawa_0',soundVolume:typeof input.settings.soundVolume==='number'?number(input.settings.soundVolume,1):.45};
     if(out.coins>out.total||out.runTotal>out.total||out.points>out.earnedPoints)throw Error('누적 수치가 일치하지 않습니다.');
     let spent=0;TREES.forEach(t=>{for(let n=0;n<out.tree[t.id];n++)spent+=1+Math.floor(n/3);});
     if(out.points+spent!==out.earnedPoints)throw Error('환생 포인트 기록이 일치하지 않습니다.');
     ITEMS.forEach(i=>{if(out.owned[i.id]>out.bought[i.id]||(!out.outfits[i.tier]&&out.bought[i.id]>0))throw Error('구매 수량 또는 의상 해금 기록이 일치하지 않습니다.');});
     return out;
   }
-  const api={CAP,PEOPLE,TIERS,ITEMS,MILESTONES,TREES,QUESTS,ACHIEVEMENTS,fresh,format,discovered,unlocked,buyOutfit,milestone,collectionBonus,itemCps,cps,clickValue,award,click,advance,cost,quote,buy,upgradeCost,upgrade,prestigeGain,prestige,treeCost,buyTree,claim,checkAchievements,offline,validate};
+  const api={CAP,PEOPLE,TIERS,ITEMS,MILESTONES,TREES,QUESTS,ACHIEVEMENTS,fresh,format,discovered,unlocked,canDisplay,selectCharacter,buyOutfit,milestone,collectionBonus,itemCps,cps,clickValue,award,click,advance,cost,quote,buy,upgradeCost,upgrade,prestigeGain,prestige,treeCost,buyTree,claim,checkAchievements,offline,validate};
   if(typeof module!=='undefined')module.exports=api;else root.GameCore=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
